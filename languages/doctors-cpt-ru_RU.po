@@ -1,0 +1,442 @@
+# Doctors CPT Plugin - Russian Translation
+msgid ""
+msgstr ""
+"Project-Id-Version: Doctors CPT 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-15 10:00+0300\n"
+"PO-Revision-Date: 2024-01-15 10:00+0300\n"
+"Last-Translator: Ваше Имя <ваш-email@example.com>\n"
+"Language-Team: Russian <ваш-email@example.com>\n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"X-Generator: Poedit 3.4\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#: doctors-cpt.php:6
+msgid "Custom Post Type: Doctors"
+msgstr "Кастомный тип записей: Врачи"
+
+#: doctors-cpt.php:7
+msgid "Creates a custom post type for doctors with taxonomies and custom fields"
+msgstr "Создает кастомный тип записей для врачей с таксономиями и пользовательскими полями"
+
+#: includes/class-post-type.php:36
+msgid "Doctors"
+msgstr "Врачи"
+
+#: includes/class-post-type.php:37
+msgid "Doctor"
+msgstr "Врач"
+
+#: includes/class-post-type.php:38
+msgid "Doctor Archives"
+msgstr "Архивы врачей"
+
+#: includes/class-post-type.php:39
+msgid "Doctor Attributes"
+msgstr "Атрибуты врача"
+
+#: includes/class-post-type.php:40
+msgid "Parent Doctor:"
+msgstr "Родительский врач:"
+
+#: includes/class-post-type.php:41
+msgid "All Doctors"
+msgstr "Все врачи"
+
+#: includes/class-post-type.php:42
+msgid "Add New Doctor"
+msgstr "Добавить нового врача"
+
+#: includes/class-post-type.php:43
+msgid "Add New"
+msgstr "Добавить нового"
+
+#: includes/class-post-type.php:44
+msgid "New Doctor"
+msgstr "Новый врач"
+
+#: includes/class-post-type.php:45
+msgid "Edit Doctor"
+msgstr "Редактировать врача"
+
+#: includes/class-post-type.php:46
+msgid "Update Doctor"
+msgstr "Обновить врача"
+
+#: includes/class-post-type.php:47
+msgid "View Doctor"
+msgstr "Просмотр врача"
+
+#: includes/class-post-type.php:48
+msgid "View Doctors"
+msgstr "Просмотр врачей"
+
+#: includes/class-post-type.php:49
+msgid "Search Doctor"
+msgstr "Поиск врача"
+
+#: includes/class-post-type.php:50
+msgid "Not found"
+msgstr "Не найдено"
+
+#: includes/class-post-type.php:51
+msgid "Not found in Trash"
+msgstr "Не найдено в корзине"
+
+#: includes/class-post-type.php:52
+msgid "Doctor Photo"
+msgstr "Фото врача"
+
+#: includes/class-post-type.php:53
+msgid "Set doctor photo"
+msgstr "Установить фото врача"
+
+#: includes/class-post-type.php:54
+msgid "Remove doctor photo"
+msgstr "Удалить фото врача"
+
+#: includes/class-post-type.php:55
+msgid "Use as doctor photo"
+msgstr "Использовать как фото врача"
+
+#: includes/class-post-type.php:56
+msgid "Insert into doctor"
+msgstr "Вставить в карточку врача"
+
+#: includes/class-post-type.php:57
+msgid "Uploaded to this doctor"
+msgstr "Загружено для этого врача"
+
+#: includes/class-post-type.php:58
+msgid "Doctors list"
+msgstr "Список врачей"
+
+#: includes/class-post-type.php:59
+msgid "Doctors list navigation"
+msgstr "Навигация по списку врачей"
+
+#: includes/class-post-type.php:60
+msgid "Filter doctors list"
+msgstr "Фильтр списка врачей"
+
+#: includes/class-post-type.php:74
+msgid "Doctor"
+msgstr "Врач"
+
+#: includes/class-post-type.php:75
+msgid "Doctor post type"
+msgstr "Тип записи «Врач»"
+
+#: includes/class-post-type.php:118
+msgid "Photo"
+msgstr "Фото"
+
+#: includes/class-post-type.php:119
+msgid "Specialization"
+msgstr "Специализация"
+
+#: includes/class-post-type.php:120
+msgid "City"
+msgstr "Город"
+
+#: includes/class-post-type.php:121
+msgid "Experience"
+msgstr "Стаж"
+
+#: includes/class-post-type.php:122
+msgid "Price From"
+msgstr "Цена от"
+
+#: includes/class-post-type.php:123
+msgid "Rating"
+msgstr "Рейтинг"
+
+#: includes/class-post-type.php:162
+msgid "years"
+msgstr "лет"
+
+#: includes/class-taxonomies.php:41
+msgid "Specializations"
+msgstr "Специализации"
+
+#: includes/class-taxonomies.php:42
+msgid "Specialization"
+msgstr "Специализация"
+
+#: includes/class-taxonomies.php:43
+msgid "Specializations"
+msgstr "Специализации"
+
+#: includes/class-taxonomies.php:44
+msgid "All Specializations"
+msgstr "Все специализации"
+
+#: includes/class-taxonomies.php:45
+msgid "Parent Specialization"
+msgstr "Родительская специализация"
+
+#: includes/class-taxonomies.php:46
+msgid "Parent Specialization:"
+msgstr "Родительская специализация:"
+
+#: includes/class-taxonomies.php:47
+msgid "New Specialization Name"
+msgstr "Название новой специализации"
+
+#: includes/class-taxonomies.php:48
+msgid "Add New Specialization"
+msgstr "Добавить новую специализацию"
+
+#: includes/class-taxonomies.php:49
+msgid "Edit Specialization"
+msgstr "Редактировать специализацию"
+
+#: includes/class-taxonomies.php:50
+msgid "Update Specialization"
+msgstr "Обновить специализацию"
+
+#: includes/class-taxonomies.php:51
+msgid "View Specialization"
+msgstr "Просмотр специализации"
+
+#: includes/class-taxonomies.php:52
+msgid "Separate specializations with commas"
+msgstr "Разделяйте специализации запятыми"
+
+#: includes/class-taxonomies.php:53
+msgid "Add or remove specializations"
+msgstr "Добавить или удалить специализации"
+
+#: includes/class-taxonomies.php:54
+msgid "Choose from the most used"
+msgstr "Выберите из наиболее используемых"
+
+#: includes/class-taxonomies.php:55
+msgid "Popular Specializations"
+msgstr "Популярные специализации"
+
+#: includes/class-taxonomies.php:56
+msgid "Search Specializations"
+msgstr "Поиск специализаций"
+
+#: includes/class-taxonomies.php:57
+msgid "Not Found"
+msgstr "Не найдено"
+
+#: includes/class-taxonomies.php:58
+msgid "No specializations"
+msgstr "Нет специализаций"
+
+#: includes/class-taxonomies.php:59
+msgid "Specializations list"
+msgstr "Список специализаций"
+
+#: includes/class-taxonomies.php:60
+msgid "Specializations list navigation"
+msgstr "Навигация по списку специализаций"
+
+#: includes/class-taxonomies.php:90
+msgid "Cities"
+msgstr "Города"
+
+#: includes/class-taxonomies.php:91
+msgid "City"
+msgstr "Город"
+
+#: includes/class-taxonomies.php:92
+msgid "Cities"
+msgstr "Города"
+
+#: includes/class-taxonomies.php:93
+msgid "All Cities"
+msgstr "Все города"
+
+#: includes/class-taxonomies.php:94
+msgid "New City Name"
+msgstr "Название нового города"
+
+#: includes/class-taxonomies.php:95
+msgid "Add New City"
+msgstr "Добавить новый город"
+
+#: includes/class-taxonomies.php:96
+msgid "Edit City"
+msgstr "Редактировать город"
+
+#: includes/class-taxonomies.php:97
+msgid "Update City"
+msgstr "Обновить город"
+
+#: includes/class-taxonomies.php:98
+msgid "View City"
+msgstr "Просмотр города"
+
+#: includes/class-taxonomies.php:99
+msgid "Separate cities with commas"
+msgstr "Разделяйте города запятыми"
+
+#: includes/class-taxonomies.php:100
+msgid "Add or remove cities"
+msgstr "Добавить или удалить города"
+
+#: includes/class-taxonomies.php:101
+msgid "Choose from the most used"
+msgstr "Выберите из наиболее используемых"
+
+#: includes/class-taxonomies.php:102
+msgid "Popular Cities"
+msgstr "Популярные города"
+
+#: includes/class-taxonomies.php:103
+msgid "Search Cities"
+msgstr "Поиск городов"
+
+#: includes/class-taxonomies.php:104
+msgid "Not Found"
+msgstr "Не найдено"
+
+#: includes/class-taxonomies.php:105
+msgid "No cities"
+msgstr "Нет городов"
+
+#: includes/class-taxonomies.php:106
+msgid "Cities list"
+msgstr "Список городов"
+
+#: includes/class-taxonomies.php:107
+msgid "Cities list navigation"
+msgstr "Навигация по списку городов"
+
+#: includes/class-metaboxes.php:30
+msgid "Doctor Details"
+msgstr "Детали врача"
+
+#: includes/class-metaboxes.php:72
+msgid "Experience (years)"
+msgstr "Стаж (лет)"
+
+#: includes/class-metaboxes.php:78
+msgid "Number of years of experience"
+msgstr "Количество лет опыта"
+
+#: includes/class-metaboxes.php:84
+msgid "Price From ($)"
+msgstr "Цена от ($)"
+
+#: includes/class-metaboxes.php:90
+msgid "Starting consultation price"
+msgstr "Начальная цена консультации"
+
+#: includes/class-metaboxes.php:96
+msgid "Rating (0-5)"
+msgstr "Рейтинг (0-5)"
+
+#: includes/class-metaboxes.php:102
+msgid "Rating from 0 to 5 (can use decimals like 4.5)"
+msgstr "Рейтинг от 0 до 5 (можно использовать десятичные значения, например 4.5)"
+
+#: includes/class-metaboxes.php:106
+msgid "Preview:"
+msgstr "Предпросмотр:"
+
+#: includes/class-archive-filters.php:134
+msgid "Specialization:"
+msgstr "Специализация:"
+
+#: includes/class-archive-filters.php:139
+msgid "All Specializations"
+msgstr "Все специализации"
+
+#: includes/class-archive-filters.php:154
+msgid "City:"
+msgstr "Город:"
+
+#: includes/class-archive-filters.php:159
+msgid "All Cities"
+msgstr "Все города"
+
+#: includes/class-archive-filters.php:174
+msgid "Sort by:"
+msgstr "Сортировать по:"
+
+#: includes/class-archive-filters.php:177
+msgid "Default"
+msgstr "По умолчанию"
+
+#: includes/class-archive-filters.php:179
+msgid "Rating (High to Low)"
+msgstr "Рейтингу (высокий → низкий)"
+
+#: includes/class-archive-filters.php:181
+msgid "Price (Low to High)"
+msgstr "Цене (низкая → высокая)"
+
+#: includes/class-archive-filters.php:183
+msgid "Experience (High to Low)"
+msgstr "Стажу (большой → маленький)"
+
+#: includes/class-archive-filters.php:189
+msgid "Apply Filters"
+msgstr "Применить фильтры"
+
+#: includes/class-archive-filters.php:191
+msgid "Reset"
+msgstr "Сбросить"
+
+#: includes/template-functions.php:49
+msgid "Experience:"
+msgstr "Стаж:"
+
+#: includes/template-functions.php:57
+msgid "Price from:"
+msgstr "Цена от:"
+
+#: includes/template-functions.php:65
+msgid "Rating:"
+msgstr "Рейтинг:"
+
+#: templates/single-doctors.php:31
+msgid "About Doctor"
+msgstr "О враче"
+
+#: templates/single-doctors.php:37
+msgid "Detailed Information"
+msgstr "Подробная информация"
+
+#: templates/single-doctors.php:49
+msgid "Back to All Doctors"
+msgstr "Вернуться ко всем врачам"
+
+#: templates/archive-doctors.php:98
+msgid "View Details"
+msgstr "Посмотреть детали"
+
+#: templates/archive-doctors.php:120
+msgid "&larr; Previous"
+msgstr "&larr; Назад"
+
+#: templates/archive-doctors.php:121
+msgid "Next &rarr;"
+msgstr "Далее &rarr;"
+
+#: templates/archive-doctors.php:129
+msgid "No doctors found."
+msgstr "Врачи не найдены."
+
+#: templates/archive-doctors.php:133
+msgid "Clear filters and show all doctors"
+msgstr "Очистить фильтры и показать всех врачей"
+
+#. Translators: %d is replaced with the number of years
+#: includes/template-functions.php:53
+msgid "%d year"
+msgid_plural "%d years"
+msgstr[0] "%d год"
+msgstr[1] "%d года"
+msgstr[2] "%d лет"
