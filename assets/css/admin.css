@@ -1,0 +1,45 @@
+.column-thumbnail img {
+    max-width: 80px;
+    height: auto;
+    border-radius: 4px;
+}
+
+.column-rating .doctor-rating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.column-rating .doctor-rating .stars {
+    color: #ffb900;
+    font-size: 14px;
+}
+
+/* Quick edit fields */
+.inline-edit-row fieldset .inline-edit-col label span.title {
+    width: 80px;
+}
+
+.inline-edit-row fieldset .inline-edit-col label input[type="number"] {
+    width: 100px;
+}
+
+/* Bulk edit fields */
+.inline-editor .bulk-edit-fields {
+    padding: 10px;
+}
+
+.inline-editor .bulk-edit-fields .field {
+    margin-bottom: 10px;
+}
+
+.inline-editor .bulk-edit-fields label {
+    display: inline-block;
+    width: 120px;
+    font-weight: 600;
+}
+
+.inline-editor .bulk-edit-fields input[type="number"] {
+    width: 100px;
+    padding: 3px 5px;
+}
