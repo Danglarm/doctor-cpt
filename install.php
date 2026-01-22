@@ -13,19 +13,19 @@ if (!defined('ABSPATH')) {
  * Create demo data on plugin activation
  */
 function doctors_cpt_install() {
+    error_log('===== doctors_cpt_install() STARTED =====');
     global $wpdb;
     
     // Check if demo data already exists
     if (get_option('doctors_demo_data_created')) {
+        error_log('Demo data already exists - skipping');
         return;
     }
     
     // Get table prefix
     $prefix = $wpdb->prefix;
     
-    echo '<div class="notice notice-info">';
-    echo '<p><strong>Doctors CPT:</strong> Creating demo data...</p>';
-    
+    error_log('Creating specializations...');
     // 1. Create specializations
     $specializations = [
         'cardiology' => 'Кардиология',
@@ -44,13 +44,15 @@ function doctors_cpt_install() {
         if (!$term) {
             $term = wp_insert_term($name, 'specialization', ['slug' => $slug]);
         }
-        if (!is_wp_error($term)) {
+        if (is_wp_error($term)) {
+            error_log('Ошибка создания специализации "' . $name . '": ' . $term->get_error_message());
+        } else {
             $spec_ids[$slug] = is_array($term) ? $term['term_id'] : $term;
+            error_log('Создана специализация: ' . $name . ' (ID: ' . $spec_ids[$slug] . ')');
         }
     }
     
-    echo '<p>✅ Created specializations</p>';
-    
+    error_log('Creating cities...');
     // 2. Create cities
     $cities = [
         'moscow' => 'Москва',
@@ -66,24 +68,25 @@ function doctors_cpt_install() {
         if (!$term) {
             $term = wp_insert_term($name, 'city', ['slug' => $slug]);
         }
-        if (!is_wp_error($term)) {
+        if (is_wp_error($term)) {
+            error_log('Ошибка создания города "' . $name . '": ' . $term->get_error_message());
+        } else {
             $city_ids[$slug] = is_array($term) ? $term['term_id'] : $term;
+            error_log('Создан город: ' . $name . ' (ID: ' . $city_ids[$slug] . ')');
         }
     }
     
-    echo '<p>✅ Created cities</p>';
-    
+    error_log('Creating doctors...');
     // 3. Create doctors
     $doctors = [
         [
             'title' => 'Иванов Иван Петрович',
             'content' => '<h3>Кардиолог с 15-летним опытом</h3><p>Специалист по лечению сердечно-сосудистых заболеваний.</p>',
-            'excerpt' => 'Опытный кардиолог высшей категории',
             'specializations' => ['cardiology'],
             'cities' => ['moscow'],
             'experience' => 15,
-            'price' => 3000,
-            'rating' => 4.8
+            'price' => 1500,
+            'rating' => 4.5,
         ],
         [
             'title' => 'Петрова Анна Сергеевна',
@@ -168,46 +171,55 @@ function doctors_cpt_install() {
     ];
     
     foreach ($doctors as $doctor_data) {
-        $post_id = wp_insert_post([
-            'post_title' => $doctor_data['title'],
+        $post_data = [
+            'post_title'   => $doctor_data['title'],
             'post_content' => $doctor_data['content'],
-            'post_excerpt' => $doctor_data['excerpt'],
-            'post_status' => 'publish',
-            'post_type' => 'doctors',
-            'post_name' => sanitize_title($doctor_data['title'])
-        ]);
+            'post_status'  => 'publish',
+            'post_type'    => 'doctors',
+            'post_author'  => 1,  // Default admin
+        ];
         
-        if ($post_id) {
-            // Set specializations
-            $spec_terms = [];
-            foreach ($doctor_data['specializations'] as $spec_slug) {
-                if (isset($spec_ids[$spec_slug])) {
-                    $spec_terms[] = (int) $spec_ids[$spec_slug];
-                }
-            }
-            if (!empty($spec_terms)) {
-                wp_set_post_terms($post_id, $spec_terms, 'specialization');
-            }
-            
-            // Set cities
-            $city_terms = [];
-            foreach ($doctor_data['cities'] as $city_slug) {
-                if (isset($city_ids[$city_slug])) {
-                    $city_terms[] = (int) $city_ids[$city_slug];
-                }
-            }
-            if (!empty($city_terms)) {
-                wp_set_post_terms($post_id, $city_terms, 'city');
-            }
-            
-            // Set meta fields
-            update_post_meta($post_id, '_experience', $doctor_data['experience']);
-            update_post_meta($post_id, '_price_from', $doctor_data['price']);
-            update_post_meta($post_id, '_rating', $doctor_data['rating']);
+        $post_id = wp_insert_post($post_data);
+        if (is_wp_error($post_id)) {
+            error_log('Ошибка создания врача "' . $doctor_data['title'] . '": ' . $post_id->get_error_message());
+            continue;
+        } else {
+            error_log('Создан врач: ' . $doctor_data['title'] . ' (ID: ' . $post_id . ')');
         }
+        
+        // Set specializations
+        $spec_terms = [];
+        foreach ($doctor_data['specializations'] as $spec_slug) {
+            if (isset($spec_ids[$spec_slug])) {
+                $spec_terms[] = (int) $spec_ids[$spec_slug];
+            }
+        }
+        if (!empty($spec_terms)) {
+            $result = wp_set_post_terms($post_id, $spec_terms, 'specialization');
+            if (is_wp_error($result)) {
+                error_log('Ошибка привязки специализаций к врачу ID ' . $post_id . ': ' . $result->get_error_message());
+            }
+        }
+        
+        // Set cities
+        $city_terms = [];
+        foreach ($doctor_data['cities'] as $city_slug) {
+            if (isset($city_ids[$city_slug])) {
+                $city_terms[] = (int) $city_ids[$city_slug];
+            }
+        }
+        if (!empty($city_terms)) {
+            $result = wp_set_post_terms($post_id, $city_terms, 'city');
+            if (is_wp_error($result)) {
+                error_log('Ошибка привязки городов к врачу ID ' . $post_id . ': ' . $result->get_error_message());
+            }
+        }
+        
+        // Set meta fields
+        update_post_meta($post_id, '_experience', $doctor_data['experience']);
+        update_post_meta($post_id, '_price_from', $doctor_data['price']);
+        update_post_meta($post_id, '_rating', $doctor_data['rating']);
     }
-    
-    echo '<p>✅ Created 9 doctors with metadata</p>';
     
     // Mark as installed
     update_option('doctors_demo_data_created', '1');
@@ -215,10 +227,7 @@ function doctors_cpt_install() {
     // Flush rewrite rules
     flush_rewrite_rules();
     
-    echo '<p><strong>✅ Demo data installed successfully!</strong></p>';
-    echo '<p><a href="' . admin_url('edit.php?post_type=doctors') . '">View Doctors</a> | ';
-    echo '<a href="' . get_post_type_archive_link('doctors') . '" target="_blank">View Archive</a></p>';
-    echo '</div>';
+    error_log('===== doctors_cpt_install() FINISHED =====');
 }
 
 /**
@@ -257,8 +266,3 @@ function doctors_cpt_uninstall() {
     delete_option('doctors_demo_data_created');
     */
 }
-
-// Register hooks
-register_activation_hook(__FILE__, 'doctors_cpt_install');
-register_deactivation_hook(__FILE__, 'flush_rewrite_rules');
-register_uninstall_hook(__FILE__, 'doctors_cpt_uninstall');

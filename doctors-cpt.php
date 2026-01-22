@@ -88,7 +88,21 @@ function doctors_cpt_admin_notice() {
     }
 }
 
-// Set first activation flag
+// Combined activation: set flag + schedule demo data creation after taxonomies are ready
 register_activation_hook(__FILE__, function() {
     update_option('doctors_cpt_first_activation', '1');
+    
+    // Schedule one-time action on next 'init' (when taxonomies are registered)
+    if (! wp_next_scheduled('doctors_cpt_create_demo_data')) {
+        wp_schedule_single_event(time() + 5, 'doctors_cpt_create_demo_data');
+    }
 });
+
+// Hook for scheduled demo data
+add_action('doctors_cpt_create_demo_data', 'doctors_cpt_install');
+
+// Register deactivation hook (flush rewrite rules)
+register_deactivation_hook(__FILE__, 'flush_rewrite_rules');
+
+// Register uninstall hook (cleanup)
+register_uninstall_hook(__FILE__, 'doctors_cpt_uninstall');
